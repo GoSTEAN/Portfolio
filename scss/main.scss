@@ -1,5 +1,6 @@
 @import "config";
 @import "utilities";
+@import "item_grid";
 
 // General Styles
 * {
@@ -172,9 +173,9 @@ img {
       }
 
       &-step {
-            background: $main-color;
-            color: set-text-color($main-color);
-          }
+        background: $main-color;
+        color: set-text-color($main-color);
+      }
       // process-icon
       &-icon {
         border-radius: 50%;
@@ -210,9 +211,9 @@ img {
   &-a {
     .about-info {
       display: grid;
-      grid-template-areas: 
-      'bioimage bio bio' 
-      'aw1 aw2 aw3';
+      grid-template-areas:
+        "bioimage bio bio"
+        "aw1 aw2 aw3";
       grid-gap: 1.2rem;
 
       // Grid Area
@@ -258,7 +259,7 @@ img {
         height: 100%;
         color: #fff;
         text-align: center;
-        background: $main-color ;
+        background: $main-color;
       }
     }
   }
@@ -306,6 +307,58 @@ img {
   }
 }
 
+// Contact page
+#contact {
+  &-a {
+    .text-fields {
+      display: grid;
+      grid-template-areas:
+        "name email"
+        "subject phone"
+        "message message";
+      grid-gap: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      // Grid Areas \
+      .name-input {
+        grid-area: name;
+      }
+      .subject-input {
+        grid-area: subject;
+      }
+      .email-input {
+        grid-area: email;
+      }
+      .phone-input {
+        grid-area: phone;
+      }
+      .message-input {
+        grid-area: message;
+        height: 100px;
+      }
+    }
+
+    button[type='submit'] {
+      width: 50%;
+    }
+  }
+
+  &-b {
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+  }
+
+  &-c {
+    h1 {
+      text-align: center;
+      font-size: 4.5rem;
+    }
+  }
+}
+
 // footer
 #main-footer {
   background: $dark-color;
@@ -337,3 +390,7 @@ img {
     }
   }
 }
+
+// Import medeia queries
+@import "media";
+
