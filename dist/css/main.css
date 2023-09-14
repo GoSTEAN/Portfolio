@@ -213,7 +213,7 @@ img {
       border-color: #ffbc00; }
 
 #header-home {
-  background: url(/dist/img/showcase.jpg);
+  background: url('../img/showcase.jpg');
   height: 100vh;
   color: #fff; }
   #header-home .header-content {
@@ -297,7 +297,8 @@ img {
 
 #about-a .about-info {
   display: grid;
-  grid-template-areas: "bioimage bio bio" "aw1 aw2 aw3";
+  grid-template-areas: "bioimage bio bio"
+ "aw1 aw2 aw3";
   grid-gap: 1.2rem; }
   #about-a .about-info .bio {
     grid-area: bioimage; }
@@ -357,7 +358,9 @@ img {
 
 #contact-a .text-fields {
   display: grid;
-  grid-template-areas: "name email" "subject phone" "message message";
+  grid-template-areas: "name email"
+ "subject phone"
+ "message message";
   grid-gap: 1.2rem;
   margin-bottom: 1.2rem; }
   #contact-a .text-fields .name-input {
