@@ -100,8 +100,9 @@ input[class^="btn-"]:hover {
   background: #ffbc00;
   overflow: hidden; }
   .item::after {
-    content: "";
+    content: '';
     position: absolute;
+    display: block;
     background: inherit;
     opacity: 0.9;
     top: 0;
@@ -110,7 +111,7 @@ input[class^="btn-"]:hover {
     height: 100%;
     transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
     transition: transform 3s cubic-bezier(0.2, 1, 0.3, 1); }
-  .item:hover::after {
+  .item:hover:after {
     transform: scale(2) translateX(0) translateY(0) rotate(-28deg); }
   .item:hover .item-image {
     transform: scale(1.2); }
@@ -119,11 +120,11 @@ input[class^="btn-"]:hover {
     transform: translateY(0); }
   .item-image {
     height: auto;
-    display: block;
     transform: translateZ(0);
-    transition: transform 3s cubic-bezier(0.2, 1, 0.3, 1); }
-  .item-image::before {
-    content: "";
+    display: block;
+    transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1); }
+  .item-image:before {
+    content: '';
     display: block;
     padding-top: 75%;
     overflow: hidden; }
@@ -213,19 +214,19 @@ img {
       border-color: #ffbc00; }
 
 #header-home {
-  background: url('../img/showcase.jpg');
+  background: url("../img/showcase.jpg") no-repeat center right/cover;
   height: 100vh;
   color: #fff; }
   #header-home .header-content {
     text-align: center;
-    padding: 20%; }
+    padding-top: 20%; }
     #header-home .header-content h1 {
       font-size: 4rem;
       line-height: 1.2; }
 
 #header-inner {
-  background-image: url(/dist/img/showcase.jpg);
-  height: 6rem;
+  background: url("../img/showcase.jpg") no-repeat 20% 30%/cover;
+  height: 5.5rem;
   border-bottom: 3px solid #ffbc00; }
 
 #home-a .specials {
@@ -264,7 +265,7 @@ img {
     top: 0;
     right: 0;
     font-size: 28px;
-    background-attachment: #ffbc00;
+    background: #ffbc00;
     color: #fff;
     border-radius: 50%;
     height: 15px;
@@ -272,9 +273,6 @@ img {
     line-height: 15px;
     padding: 1rem;
     transition: all 1s; }
-  #home-c .process-step {
-    background: #ffbc00;
-    color: #fff; }
   #home-c .process-icon {
     border-radius: 50%;
     background: #333;
@@ -297,33 +295,38 @@ img {
 
 #about-a .about-info {
   display: grid;
-  grid-template-areas: "bioimage bio bio"
- "aw1 aw2 aw3";
+  grid-template-areas: "bioimage bio bio" "aw1 aw2 aw3";
   grid-gap: 1.2rem; }
-  #about-a .about-info .bio {
-    grid-area: bioimage; }
-  #about-a .about-info .bio {
-    grid-area: bio;
-    border-left: 3px solid #ffbc00;
-    padding: 0.8rem; }
-  #about-a .about-info .award-1 {
-    grid-area: aw1; }
-  #about-a .about-info .award-2 {
-    grid-area: aw2; }
-  #about-a .about-info .award-3 {
-    grid-area: aw3; }
-  #about-a .about-info .award-1 .fas,
-  #about-a .about-info .award-2 .fas,
-  #about-a .about-info .award-3 .fas {
-    color: #ffbc00;
-    margin: 1rem; }
+
+#about-a .bio-image {
+  grid-area: bioimage; }
+
+#about-a .bio {
+  grid-area: bio;
+  border-left: 3px solid #ffbc00;
+  padding: 0.8rem; }
+
+#about-a .award-1 {
+  grid-area: aw1; }
+
+#about-a .award-2 {
+  grid-area: aw2; }
+
+#about-a .award-3 {
+  grid-area: aw3; }
+
+#about-a .award-1 .fas,
+#about-a .award-2 .fas,
+#about-a .award-3 .fas {
+  color: #ffbc00;
+  margin: 1rem; }
 
 #about-b .progress {
   overflow: hidden;
   height: 20px;
   background: #ccc;
   border-radius: 5px;
-  margin-bottom: 0.3rem; }
+  margin-bottom: 0.6rem; }
   #about-b .progress div {
     height: 100%;
     color: #fff;
@@ -332,10 +335,10 @@ img {
 
 #about-c .about-logos {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem; }
   #about-c .about-logos img {
-    width: 30%; }
+    width: 70%; }
 
 #about-d .testimonials {
   display: grid;
@@ -358,9 +361,7 @@ img {
 
 #contact-a .text-fields {
   display: grid;
-  grid-template-areas: "name email"
- "subject phone"
- "message message";
+  grid-template-areas: "name email" "subject phone" "message message";
   grid-gap: 1.2rem;
   margin-bottom: 1.2rem; }
   #contact-a .text-fields .name-input {
@@ -374,8 +375,10 @@ img {
   #contact-a .text-fields .message-input {
     grid-area: message;
     height: 100px; }
+  #contact-a .text-fields .text-input {
+    padding: 0.5rem 1rem; }
 
-#contact-a button[type='submit'] {
+#contact-a button[type="submit"] {
   width: 50%; }
 
 #contact-b .contact-info {
@@ -385,14 +388,12 @@ img {
 
 #contact-c h1 {
   text-align: center;
-  font-size: 4.5rem; }
+  font-size: 4rem; }
 
 #main-footer {
   background: #333;
   color: #fff;
   height: 5rem; }
-  #main-footer a {
-    color: #fff; }
   #main-footer .footer-content {
     display: flex;
     justify-content: space-between;
@@ -410,7 +411,7 @@ img {
       #main-footer .footer-content .social .fab:hover {
         background: #ffbc00; }
 
-@media (max-height: 800px) {
+@media (max-width: 800px) {
   #header-home {
     height: 30rem; }
     #header-home .header-content {
@@ -443,36 +444,30 @@ img {
     #home-a .specials div:last-child {
       border: none;
       padding-bottom: 0; }
-  #home-a-b .stats div {
-    padding: 2rem 0 1rem 0; } }
-
-#about-a .about-info {
-  grid-template-areas: 'bioimage' 'bio' 'aw1' 'aw2' 'aw3'; }
-
-#about-c {
-  display: none; }
-
-#contact-a .text-fields {
-  grid-template-areas: 'name' 'subject' 'email' 'phone' 'message'; }
-
-#contact-b div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px #555 solid; }
-  #contact-b div:last-child {
-    border: none;
-    margin-bottom: 0;
-    padding-bottom: 0; }
-
-#contact-c h1 {
-  font-size: 1.5rem; }
-
-#main-footer {
-  height: 7rem; }
-  #main-footer .footer-content {
-    flex-direction: column;
-    padding: 1rem;
-    height: 5rem; }
+  #home-b .stats div {
+    padding: 2rem 0 1rem 0; }
+  #about-a .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'aw1' 'aw2' 'aw3'; }
+  #about-c {
+    display: none; }
+  #contact-a .text-fields {
+    grid-template-areas: 'name' 'subject' 'email' 'phone' 'message'; }
+  #contact-b div {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px #555 solid; }
+    #contact-b div:last-child {
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 0; }
+  #contact-c h1 {
+    font-size: 2rem; }
+  #main-footer {
+    height: 7rem; }
+    #main-footer .footer-content {
+      flex-direction: column;
+      padding: 1rem;
+      height: 5rem; } }
 
 @media (max-height: 580px) {
   #header-home .header-content {
